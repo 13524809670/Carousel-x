@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery焦点图片轮播滚动类似选项卡滑动切换</title>
+<meta name="description" content="jquery图片滚动插件制作banner焦点图片轮播滚动切换，鼠标滑过缩略图图片向左滚动显示相应的大图，类似选项卡滑动切换效果的焦点图片展示。" />
+</head>
+
+<body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
+
+/* focusbox */
+.focusbox{width:990px;height:405px;position:relative;margin:20px auto;overflow:hidden;}
+.arrowbtn{background:#ddd;width:60px;height:60px;cursor:pointer;position:absolute;top:100px;}
+.prebtn{left:0;}
+.nextbtn{right:0;}
+.contentimg{position:absolute;top:0;left:0;width:7000px;}
+.contentimg li{width:990px;height:340px;float:left;margin-right:10px;overflow:hidden;}
+.contentimg li img{width:990px;height:340px;}
+.contentdesc{
+	position:absolute;top:0;right:0;width:282px;height:340px;background:rgba(0,0,0,0.7);overflow:hidden;
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');
+}
+.contentdesc .desc{color:#dadada;}
+.contentdesc .desc h4{font-size:15px;font-weight:bold;color:#fff;}
+.contentdesc .desc strong{color:#e4007f;}
+.contentdesc .desc .def_ico{display:inline-block;*display:inline;zoom:1;width:68px;height:18px;overflow:hidden;background:url(images/T193mCXnRQXXXXXXXX-300-300.png) no-repeat -112px -129px;vertical-align:middle;}
+.contentdesc .desc .stars{display:inline-block;width:53px;height:10px;background:url(images/T1t2aCXnVZXXXXXXXX-53-10.png) no-repeat;}
+.contentdesc .desc_btn{display:block;width:119px;height:38px;background:url(images/T1VzKGXbNpXXXXXXXX-119-38.png) no-repeat;margin-top:12px;}
+.contentdesc li{width:262px;height:320px;padding:20px 0 0 20px;}
+.focusbox .navbox{width:1000px;overflow:hidden;position:absolute;right:-12px;bottom:0;}
+.focusbox .navbox li{width:139px;height:55px;overflow:hidden;float:left;margin-right:2px;}
+.focusbox .navbox li img{width:139px;height:55px;}
+.focusbox .navbox li.selected{width:137px;height:53px;border:1px solid #ff32a5;}
+.focusbox .navbox li.selected img{width:137px;height:53px;}
+</style>
+
+<div class="focusbox">
+
+	<div class="contentbox">
+		<ul class="contentimg">
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1NzqUXehxXXXXXXXX-990-340.jpg" title="金陵十三钗"></a></li>
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1DJWVXgNaXXXXXXXX-990-340.jpg" title="哈利波特与死亡圣器（下）"></a></li>  
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1VuqVXfRXXXXXXXXX-990-340.jpg" title="失恋33天"></a></li>
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1gQaUXahwXXXXXXXX-990-340.jpg" title="惊天战神"></a></li>
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1r7uUXgXvXXXXXXXX-990-340.jpg" title="八星抱喜"></a></li>
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1eDuGXjFsXXXXXXXX-990-340.jpg" title="弱点"></a></li>
+			<li><a href="http://www.17sucai.com/" target="_blank"><img width="990" height="340" src="images/T1MEqGXadpXXXXXXXX-990-340.jpg" title="盗梦空间"></a></li>
+		</ul>
+		<ul class="contentdesc">
+			<li class="ac-tive">
+				<div class="desc">            
+					<h4>金陵十三钗</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：克里斯蒂安·贝尔</p>
+					<p style="text-indent:3em;">倪妮</p>
+					<p>类型： 战争 历史</p>
+					<p>上映时间： 2011-12-15(中国)</p>
+					<p style="padding-bottom:10px;">授权有效期：购买后48小时内可任意观看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>5.00</strong>元</p>
+					<p>已售出：<strong>433</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有80人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div> 
+			</li>
+			<li>
+				<div class="desc">            
+					<h4>哈利波特与死亡圣器（下）</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：丹尼尔·雷德克里夫</p>
+					<p style="text-indent:3em;">爱玛·沃森</p>
+					<p>类型：  动作 青春 魔幻</p>
+					<p>上映时间： 2011-08-04(中国)</p>
+					<p style="padding-bottom:10px;">授权有效期： 2012年11月30日前均可看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>7.00</strong>元</p>
+					<p>已售出：<strong>1832</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有550人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div> 
+			</li>    
+			<li>
+				<div class="desc">            
+					<h4>失恋33天</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：文章</p>
+					<p style="text-indent:3em;">白百何</p>
+					<p>类型： 爱情 喜剧</p>
+					<p>上映时间： 2011-11-08(中国)</p>
+					<p style="padding-bottom:10px;">授权有效期： 购买后48小时内可任意观看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>5.00</strong>元</p>
+					<p>已售出：<strong>5774</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有1856人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div>      
+			</li>
+			<li>
+				<div class="desc">            
+					<h4>惊天战神</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：亨利·卡维尔</p>
+					<p style="text-indent:3em;">米基·洛克</p>
+					<p>类型： 奇幻 动作</p>
+					<p>上映时间： 2011-11-11(中国)</p>
+					<p style="padding-bottom:10px;">授权有效期： 购买后48小时内可任意观看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>5.00</strong>元</p>
+					<p>已售出：<strong>32</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有5人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div>  
+			</li>
+			<li> 
+				<div class="desc">            
+					<h4>八星抱喜</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：古天乐</p>
+					<p style="text-indent:3em;">吴君如</p>
+					<p>类型： 喜剧</p>
+					<p>上映时间： 2012-01-20(中国)</p>
+					<p style="padding-bottom:10px;">授权有效期： 购买后48小时内可任意观看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>5.00</strong>元</p>
+					<p>已售出：<strong>20</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有1人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div>  
+			</li>
+			<li>
+				<div class="desc">            
+					<h4>弱点</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：桑德拉·布洛克</p>
+					<p style="text-indent:3em;">蒂姆·麦格罗</p>
+					<p>类型： 剧情</p>
+					<p>上映时间：  2009-11-20(美国)</p>
+					<p style="padding-bottom:10px;">授权有效期： 2012年11月30日前均可看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>1.49</strong>元</p>
+					<p>已售出：<strong>175</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有48人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div>                   
+			</li>
+			<li>
+				<div class="desc">            
+					<h4>盗梦空间</h4>
+					<h4>独家正版在线观看！</h4>
+					<p style="padding-top:10px;">演员：莱昂纳多·迪卡普里奥</p>
+					<p style="text-indent:3em;">约瑟夫·高登-莱维特</p>
+					<p>类型： 剧情 科幻 悬疑</p>
+					<p>上映时间：  2010-09-01(美国)</p>
+					<p style="padding-bottom:10px;">授权有效期： 2012年11月30日前均可看</p>
+					<p>清晰度：<span class="def_ico"></span></p>
+					<p>价格：<strong>5.00</strong>元</p>
+					<p>已售出：<strong>259</strong>件</p>
+					<p>评 价：<span class="stars"></span>（已有65人评论）</p>
+					<a class="desc_btn" href="http://www.17sucai.com/" title="在线预览"></a>           
+				</div>      
+			</li>
+		</ul>
+	</div>
+	
+	<div class="navbox">
+		<ul class="mfoc_nav">
+			<li _index="1" class="selected"><img width="137" height="53" src="images/T1bISVXltcXXXXXXXX-137-53.jpg" alt="金陵十三钗" /></li>
+			<li _index="2"><img width="137" height="53" src="images/T1ccSVXlBcXXXXXXXX-137-53.jpg" alt="哈利波特与死亡圣器（下）" /></li>
+			<li _index="3"><img width="137" height="53" src="images/T17ZOVXlxcXXXXXXXX-137-53.jpg" alt="失恋33天" /></li>
+			<li _index="4"><img width="137" height="53" src="images/T15IOVXlRcXXXXXXXX-137-53.jpg" alt="惊天战神" /></li>
+			<li _index="5"><img width="137" height="53" src="images/T11IOVXl0cXXXXXXXX-137-53.jpg" alt="八星抱喜" /></li>
+			<li _index="6"><img width="137" height="53" src="images/T1fmmGXjhwXXXXXXXX-137-53.jpg" alt="弱点" /></li>     
+			<li _index="7"><img width="137" height="53" src="images/T1VCWGXdluXXXXXXXX-137-53.jpg" alt="盗梦空间" /></li> 
+		</ul>
+	</div>
+	
+</div>   
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+(function(jQuery){
+	jQuery.fn.th_focus_swing = function(options)
+	{
+		var defaults = {
+			time		:3500,		//轮换秒数
+            index		:1,			//默认第几张		
+			speed		:500,		//切换时间
+			dis			:1000,
+			splits 		:1			//总标签
+		};
+		var opts = jQuery.extend(defaults, options);
+		
+		var _index = opts.index;
+		var _time = opts.time;
+		var _speed = opts.speed;
+		var _dis = opts.dis;
+		var _splits = opts.splits;
+		
+		var _this = jQuery(this);
+		
+		var node_ul = _this.find(".contentimg");	
+		var node_li = node_ul.find("li");
+		var node_li_desc = jQuery(".contentdesc").find("li");
+		var node_li_nav = jQuery(".mfoc_nav").find("li");
+		
+		var li_len = node_li.length;
+		
+		var _countIndex = (node_li.length/opts.split -  1)    
+		var _start_left = node_ul.css("left");                
+ 		
+		var _timer = setInterval(show, _time);
+
+        init();
+		//alert(1);
+		function init() {
+			node_ul.mouseover(function() {
+				_timer = clearInterval(_timer);
+			}).mouseout(function() {
+				_timer = setInterval(show, _time);
+			});
+			node_li_desc.mouseover(function() {
+				_timer = clearInterval(_timer);
+			}).mouseout(function() {
+				_timer = setInterval(show, _time);
+			});
+			
+			node_li_nav.mouseover(function() {
+				 node_ul.stop(true, true);
+				 node_li_desc.stop(true, true);
+				 node_li_desc.eq(_index-1).css("display", "none");
+				 node_li_nav.eq(_index-1).removeClass("selected");
+				 _index = parseInt(jQuery(this).attr("_index"));
+				 node_li_desc.eq(_index-1).fadeIn(_speed);
+				 node_li_nav.eq(_index-1).addClass("selected");
+				 _left = -_dis*(_index - 1); 
+				 node_ul.animate({"left": _left}, _speed);
+				_timer = clearInterval(_timer);
+			}).mouseout(function() {
+				_timer = setInterval(show, _time);
+			});
+		}
+		
+		function show() {
+                        //alert(2);
+			node_ul.stop(true, true);
+			node_li_nav.eq(_index-1).removeClass("selected");
+			node_li_desc.eq(_index-1).css("display", "none");
+			_index++;
+			if(_index > li_len) {
+				node_ul.append(node_ul.find("li:lt(1)"));
+				node_ul.css("left", parseInt(node_ul.css("left")) + _dis);
+				node_li_nav.eq(0).addClass("selected");
+				node_li_desc.eq(0).fadeIn(_speed);
+			}
+			else {
+				node_li_nav.eq(_index-1).addClass("selected");
+				node_li_desc.eq(_index-1).fadeIn(_speed);
+			}
+			var _left = parseInt(node_ul.css("left")) - _dis;
+			node_ul.animate({"left": _left}, _speed, function() {
+					if(_index > li_len) {
+						node_ul.prepend(node_ul.find("li:gt("+(li_len-_splits-1)+")"));
+						node_ul.css("left", 0);
+						_index = 1;
+					}
+					
+			});
+			
+		}
+	}
+})(jQuery);
+</script>
+
+<script>
+$(document).ready(function(){
+	//focus
+	$(".focusbox").th_focus_swing();
+});
+</script>
+
+</body>
+</html>

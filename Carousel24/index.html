@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery iNav插件图片分类导航选项卡切换图片滚动列表</title>
+<meta name="description" content="jQuery iNav插件制作图片分类导航条，点击导航选项卡切换展示相应的带左右按钮控制的图片滚动列表。" />
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";background:#2A2A2A;}
+#inav-dock{height:220px;overflow:hidden;margin:40px auto;width:940px;background:url(images/bg-dock.png ) no-repeat 50% 100%;}
+#inav{width:850px;margin:55px auto 0 auto;}
+#inav .inav-slides ul li a{margin:0 auto;width:140px;}
+#inav .inav-arrows a{width:41px;height:37px;background:url(images/bg-arrows.png ) no-repeat;}
+#inav .inav-arrows a.inav-prev-item{left:-20px;background-position:0 -34px;}
+#inav .inav-arrows a.inav-prev-item:hover{background-position:-41px -34px;}
+#inav .inav-arrows a.inav-prev-item.disabled{background-position:-82px -34px;}
+#inav .inav-arrows a.inav-next-item{right:-20px;}
+#inav .inav-arrows a.inav-next-item:hover{background-position:-41px 0;}
+#inav .inav-arrows a.inav-next-item.disabled{background-position:-82px 0;}
+#inav .inav-arrows a{margin-top:0;top:auto;bottom:20px;padding:0;}
+#inav .inav-menu{position:absolute;z-index:10;top:-45px;}
+#inav .inav-menu li{padding:1px 6px;background-color:#fff;border-radius:2px;}
+#inav .inav-menu li a{color:#fff;font-size:11px;color:#333;text-decoration:none;}
+#inav .inav-menu li a:hover{text-decoration:none;}
+</style>
+<link rel="stylesheet" href="css/jquery.inav-min.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.inav-packed.js"></script>
+</head>
+
+<body>
+
+<div id="inav-dock">
+	<div class="inav-showcase" id="inav">
+		<div class="inav-arrows">
+			<a href="javascript:void(0);" class="inav-prev-item inav-arrow"></a>
+			<a href="javascript:void(0);" class="inav-next-item inav-arrow"></a>
+		</div>
+		
+		<div class="inav-menu"></div>
+		
+		<div class="inav-slides">
+			<ul>
+				<li><a href="http://www.17sucai.com/"><img src="img/elephant.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/gorilla.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/home.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/ice-cream.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/lion.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/elephant.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/gorilla.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/home.png" alt="" /></a></li>
+				<li class="title">马戏团</li>
+			</ul>
+			<ul>
+				<li><a href="http://www.17sucai.com/"><img src="img/cart.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/notebook_boy.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/notebook_girl.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/photo.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/piggybank.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/cart.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/notebook_boy.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/notebook_girl.png" alt="" /></a></li>
+				<li class="title">书本</li>
+			</ul>
+			<ul>
+				<li><a href="http://www.17sucai.com/"><img src="img/akg-k181-256x256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/MBP-256x256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/mk2-sl25-256x256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/nocturn-256x256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/profire-610-256x256.png" alt="" /></a></li>
+				<li class="title">小工具</li>
+			</ul>
+			<ul>
+				<li><a href="http://www.17sucai.com/"><img src="img/Agate256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/Coin256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/FilesFolder256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/Ingot256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/Melted256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/PaperMoney256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/Partnership256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/Ring256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/StoneRing256.png" alt="" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="img/Treasure256.png" alt="" /></a></li>
+				<li class="title">珠宝</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+$(function(){
+	var $nav = $( '#inav' ).inav({
+		autoCenterMenu     : true,
+		itemWidth          : 170,
+		carouselAutoScroll : true
+	});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Slidorion插件图片新闻焦点图和手风琴结合图片切换展示</title>
+<meta name="description" content="jQuery Slidorion插件图片切换，制作图片新闻焦点图片切换和竖直手风琴两种特效结合的图片切换效果。" />
+<link rel="stylesheet" href="css/style.css" />
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	
+<div id="header"><h1>SLIDORION</h1></div>
+<div id="topmenu">
+	<ul>
+		<li class="active"><a href="demo.html">实例一</a></li>
+		<li><a target="_blank" href="fullscreen-demo.html">实例二</a></li>
+		<li><a href="slidorion-background-demo.html">实例三</a></li>
+		<li><a href="slidorion-basic-demo.html">实例四</a></li>
+		<li><a href="slidorion-multiple-demo.html">实例五</a></li>  
+		<li><a href="slidorion-navigation.html">实例六</a></li>
+		<li><a href="slidorion-overrandom-demo.html">实例七</a></li>
+		<li><a href="slidorion-random-demo.html">实例八</a></li>
+		<li><a href="slidorion-sliderandom-demo.html">实例九</a></li>   
+	</ul>
+</div>
+
+<div id="slidorion">
+	
+	<div id="slider">
+		<div id="slide1" class="slide"><a href="http://www.17sucai.com"><img src="img/spiderman.jpg" width="488" height="400" alt="jsfoot" /></a></div>
+		<div id="slide2" class="slide"><a href="http://www.17sucai.com"><img src="img/kick-ass.jpg" width="488" height="400" alt="jsfoot" /></a></div>
+		<div id="slide3" class="slide"><a href="http://www.17sucai.com"><img src="img/hot-fuzz.jpg" width="488" height="400" alt="jsfoot" /></a></div>
+	</div>
+	
+	<div id="accordion">
+		<div class="link-header">新功能</div>
+		<div class="link-content">
+			<p><strong>Slidorion</strong>最近添加可一些新的功能。</p>
+			<p>目前，它<strong>支持HTML</strong>而不仅仅是图像, 提高的可用性Slidorion的特定。</p>
+			<p>已添加了一些新的效果,最重要的<strong>平移和缩放</strong>! 随着性能升级和重要的<strong>bug修复</strong>。</p>
+		</div>
+		<div class="link-header">嵌入图像</div>
+		<div class="link-content">
+			<p>蝙蝠侠提高了赌注在他的战争犯罪。中尉吉姆·戈登和地区检察官哈维·登特的帮助下，蝙蝠侠拆除余下的犯罪组织，困扰着城市的街道。但他们很快就发现自己的猎物所释放出一个上升的犯罪主谋小丑吓坏了公民的Gotham混乱的统治。</p>
+			<a href="http://www.imdb.com/title/tt0468569/">阅读更多</a>
+		</div>
+		<div class="link-header">当前高亮</div>
+		<div class="link-content">
+			<p>伦敦的警察，天使PC尼古拉斯是不错的。太美好了。停止他的团队寻找坏的其余部分，他被重新分配到安静的小镇桑福德。一切似乎都安静的天使，直到两位演员被发现身首异处。这就是所谓的事故，但天使是不会接受的，尤其是当越来越多的人将死了。</p>
+			<a href="http://www.imdb.com/title/tt0425112/">阅读更多</a>
+		</div>
+	</div>
+	
+</div><!--slidorion end-->
+	
+<link rel="stylesheet" href="css/slidorion.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script> 
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.slidorion.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#slidorion').slidorion({
+		first: 2,
+		autoPlay: true,
+		easing: 'easeInOutCubic',
+		effect: 'random'
+	});
+});
+</script>
+	
+</body>
+</html>

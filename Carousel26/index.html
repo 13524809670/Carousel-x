@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery图片层叠旋转类似洗牌翻转图片幻灯片</title>
+<meta name="description" content="jQuery图片层叠旋转切换滚动，类似洗牌翻转的图片幻灯片，设置左右按钮控制图片旋转滚动切换。" />
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180%, Arial, Helvetica, sans-serif, "新宋体";}
+/* gla */
+#gla{margin:0 auto;position:relative;background:url(images/gla_bac.png);height:404px;overflow:hidden;}
+#gla_box{width:700px;margin:auto;position:relative;}
+#gla_box .prev,#gla_box .next{display:block;z-index:100;overflow:hidden;cursor:pointer;position:absolute;width:52px;height:52px;top:171px;}
+#gla_box .prev{background:url(images/btn.png) left bottom no-repeat;left:-155px}
+#gla_box .next{background:url(images/btn.png) right bottom no-repeat;right:-140px} 
+#gla_box .prev:hover{background-position:left top;}
+#gla_box .next:hover{background-position:right top;}
+.gla_inbox{overflow:hidden;position:relative;}
+.gla_inbox p{text-indent:1em;font-size:14px;width:100%;color:#FFFFFF;line-height:30px;background:#000000;}
+.gla_inbox a{padding:5px;display:block;position:absolute;top:220px;left:90px;background:#0066CC;color:#FFF;}
+.gla_inbox img{width:100%;height:100%;}
+.roundabout-holder{height:404px;width:700px;}
+.roundabout-moveable-item{display:block;height:300px;width:500px;cursor:pointer;}
+.roundabout-in-focus{cursor:auto;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.corner.js"></script>
+<script type="text/javascript" src="js/jquery.roundabout.js"></script>
+<script type="text/javascript" src="js/jquery.roundabout-shapes.js"></script>
+<script type="text/javascript">
+$(function(){
+		   
+	$('.gla_inbox').corner('8px');
+	
+	$('#gla_box>ul').roundabout({
+		minOpacity:1,
+		btnNext: ".next",
+		duration: 1000,
+		reflect: true,
+		btnPrev: '.prev',
+		autoplay:true,
+		autoplayDuration:5000,
+		tilt:0,
+		shape: 'figure8'
+	});
+	
+});
+</script>
+</head>
+<body>
+
+<div id="gla">
+	<div id="gla_box">
+		<span class="prev">&nbsp;</span>
+		<span class="next">&nbsp;</span>
+		<ul>
+			<li>
+				<div class="gla_inbox">
+					<p>电脑外包服务</p>
+					<img src="images/20120814204816.jpg" />
+					<a href="http://www.17sucai.com/">点击了解详情</a>
+				</div>
+			</li>
+			<li>
+				<div class="gla_inbox">
+					<p>网络外包服务</p>
+					<img src="images/20120814204750.jpg" />
+					<a href="http://www.17sucai.com/">点击了解详情</a>
+				</div>
+			</li>
+			<li>
+				<div class="gla_inbox">
+					<p>数据恢复服务</p>
+					<img src="images/20120814204733.jpg" />
+					<a href="http://www.17sucai.com/">点击了解详情</a>
+				</div>
+			</li>
+			<li>
+				<div class="gla_inbox">
+					<p>IT紧急救援服务</p>
+					<img src="images/20120814204711.jpg" />
+					<a href="http://www.17sucai.com/">点击了解详情</a>
+				</div>
+			</li>
+			<li>
+				<div class="gla_inbox">
+					<p>培训服务</p>
+					<img src="images/20120814204658.jpg" />
+					<a href="http://www.17sucai.com/">点击了解详情</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

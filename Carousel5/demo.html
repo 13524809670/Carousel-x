@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery多窗口轮播焦点图片滚动切换</title>
+<meta name="description" content="jquery焦点图特效制作影视网站多窗口焦点图片轮播滚动播放，点击索引按钮每个焦点图窗口图片相应的滚动切换。多个窗口图片滚动组成的轮播焦点图片切换。" />
+</head>
+
+<body>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-table;}/* Hides from IE-mac \*/
+*html .clearfix{height:1%;}
+.clearfix{display:block;}/* End hide from IE-mac */
+*+html .clearfix{min-height:1%;}
+/* slide_screen */
+.slide_screen{width:990px;margin:40px auto;}
+.slide_screen li{float:left;overflow:hidden;position:relative;margin-right:4px;}
+.slide_screen li.liA{width:583px;height:342px;}
+.slide_screen li.liB,.slide_screen li.liC{width:199px;height:169px;}
+.slide_screen li.liD{width:198px;height:342px;margin-top:-173px;}
+.slide_screen li.liA .window{width:1166px;position:absolute;left:0;top:0px;}
+.slide_screen li.liB .window,.slide_screen li.liC .window{width:398px;}
+.slide_screen li.liD .window{width:396px;}
+.slide_screen li img{display:block;}
+.slide_screen li .piece{float:left;position:relative;overflow:hidden;zoom:1;}
+.slide_screen li.liA,.slide_screen li.liA .piece,.slide_screen li.liA img{width:583px;height:342px;}
+.slide_screen li.liB,.slide_screen li.liB .piece,.slide_screen li.liB img{width:199px;height:169px;}
+.slide_screen li.liB,.slide_screen li.liB .piece,.slide_screen li.liC img{width:199px;height:169px;}
+.slide_screen li.liD,.slide_screen li.liD .piece,.slide_screen li.liD img{width:198px;height:342px;margin-right:0;}
+.slide_screen li.liB{margin-bottom:4px;}
+.slide_screen li .bar{width:537px;padding:0 36px 0 10px;height:45px;position:absolute;bottom:0;left:0;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CC000000', endColorstr='#CC000000');background:rgba(0,0,0,0.8);color:#fff;font-weight:bold;font-size:12px;}
+.slide_screen li.liB .bar,.slide_screen li.liC .bar{width:153px;}
+.slide_screen li.liD .bar{width:152px;}
+.slide_screen li .bar h3{padding-top:4px;font-size:14px;}
+.slide_screen li .bar p{font-weight:normal;}
+.slide_screen li .bar span{
+	display:block;width:28px;height:28px;overflow:hidden;position:absolute;top:8px;right:4px;background:url(images/T1Q59VXnxbXXXXXXXX-28-28.png) no-repeat;
+	_background:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="images/T1Q59VXnxbXXXXXXXX-28-28.png");
+}
+.slide_screen li .bar a{display:block;width:583px;height:45px;position:absolute;top:0;left:0;z-index:10;font-size:0;}
+.slide_screen li.liB .bar a,.slide_screen li.liC .bar a{width:199px;}
+.slide_screen li.liC .bar a{width:198px;}
+
+.libtn{width:165px;height:13px;text-align:center;margin:10px auto 0 auto;}
+.libtn li{float:left;margin:0 4px;display:inline;width:45px;height:11px;border:1px solid #989898;overflow:hidden;cursor:pointer;}
+.libtn li.selected{background:#989898}
+</style>
+
+<div class="slide_screen">
+
+	<ul class="clearfix">
+		<li class="liA">
+			<div class="window clearfix">
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="583" height="342" src="images/T1mn69XeNcXXa_45YM-583-342.jpg" alt="2012公务员面试"></a>
+					<div class="bar">
+						<h3>2012公务员面试</h3>
+						<p>华图名师主讲，高分速成</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="583" height="342" src="images/T1__j5XXxeXXa_45YM-583-342.jpg" alt="为了孩子，全场1毛钱！"></a>
+					<div class="bar">
+						<h3>为了孩子，全场1毛钱！</h3>
+						<p>原版引进25部视频，孩子最不容错过的教育精品！</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="583" height="342" src="images/T1ga_9XgNgXXa_45YM-583-342.jpg" alt="电影大放“价”啦" /></a>
+					<div class="bar">
+						<h3>电影大放“价”啦</h3>
+						<p>全场0.11元，低过五折，疯狂开抢啦！</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="liB">
+			<div class="window clearfix">
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="169" src="images/T1jIkXXkNaXXbbze.U-199-169.jpg" alt="屌丝的逆袭"></a>
+					<div class="bar">
+						<h3>屌丝的逆袭</h3>
+						<p>学变高富帅</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="169" src="images/T1zcH2Xj0kXXbbze.U-199-169.jpg" alt="美颜瘦脸瑜伽"></a>
+					<div class="bar">
+						<h3>美颜瘦脸瑜伽</h3>
+						<p>快速打造小V脸！</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="168" src="images/T1Udb6XfRaXXcAiK.U-199-168.jpg" alt="消失的子弹"></a>
+					<div class="bar">
+						<h3>消失的子弹</h3>
+						<p>谢霆锋、刘青云大斗法！</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="liC">
+			<div class="window clearfix">
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="169" src="images/T1vLz.XXBdXXbbze.U-199-169.jpg" alt="Inventor 2012"></a>
+					<div class="bar"> 
+						<h3>Inventor 2012</h3>
+						<p>开发技术入门培训</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="169" src="images/T1Rbv.XnFdXXbbze.U-199-169.jpg" alt="健身五禽戏"></a>
+					<div class="bar">
+						<h3>健身五禽戏</h3>
+						<p>强筋健骨，祛病长生</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="169" src="images/T1zQn1Xf8jXXbbze.U-199-169.jpg" alt="紫色"></a>
+					<div class="bar">
+						<h3>紫色</h3>
+						<p>斯皮尔伯格的女权电影！</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="liD">
+			<div class="window clearfix">
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="198" height="342" src="images/T1n2H1XgJmXXa2zXUS-198-342.jpg"  alt="AutoCAD标准培训课堂"></a>
+					<div class="bar">
+						<h3>AutoCAD标准培训课堂</h3>
+						<p>举一反三，强化效果</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>            
+				</div>
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="198" height="342" src="images/T1j0D_XnphXXa2zXUS-198-342.jpg" alt="伊索寓言"></a>
+					<div class="bar">
+						<h3>伊索寓言</h3>
+						<p>感受经典，培养品德</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>        
+				<div class="piece">
+					<a href="http://www.17sucai.com/" target="_blank"><img width="199" height="342" src="images/T1VCY6XhlgXXb9i3oU-199-342.jpg" alt="寒战"></a>
+					<div class="bar">
+						<h3>寒战</h3>
+						<p>无间道后，港产警匪再造高峰！</p>
+						<span></span>
+						<a href="http://www.17sucai.com/" target="_blank">&nbsp;</a>
+					</div>
+				</div>   
+			</div>
+		</li>
+	</ul>
+	
+	<ul class="libtn">
+		<li _index="1"></li>
+		<li _index="2"></li>
+		<li _index="3"></li>
+	</ul>
+	
+</div>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+(function() {
+	var LI_WIDTH = [583, 199, 199, 198], 
+		LI_DOM = [$('.slide_screen li.liA'), $('.slide_screen li.liB'), $('.slide_screen li.liC'), $('.slide_screen li.liD')], 
+		LI_BTN = $('.slide_screen .libtn'),
+		COUNT =  3, SPEED = 1000, DISTIM = 6000, LI_COUNT = 4;
+	var cur = 1, next_cur = 2, runid, isclick = true;
+
+	init();
+	initEvent();
+
+	runid = setInterval(run, DISTIM);
+	function init() {
+		LI_BTN.find('li').eq(cur-1).addClass('selected');
+
+		for(var i=0; i<LI_COUNT; i++) {
+			LI_DOM[i].find('.window').css({'top':0, 'left':0, 'position':'absolute'});
+			LI_DOM[i].find('.window').css('width', LI_WIDTH[i]*COUNT);
+		}
+
+	}
+	function initEvent() {
+		LI_BTN.click(function(ev){
+			if(isclick && $(ev.target).attr("_index") !== undefined) {
+				isclick = false;
+				LI_BTN.find('li').eq(cur-1).removeClass('selected');
+				clearInterval(runid);
+				runid = null;
+				cur = parseInt($(ev.target).attr("_index"));
+				next_cur = cur + 1;
+				LI_BTN.find('li').eq(cur-1).addClass('selected');
+				for(var i=0; i<LI_COUNT; i++) {
+					LI_DOM[i].find('.window').stop(true,true).animate({"left": -(cur-1)*LI_WIDTH[i]}, SPEED, function(){
+						if(runid===null)runid = setInterval(run, DISTIM);
+						isclick = true;
+					});
+				}
+			}
+		});
+	}
+	function run() {
+		isclick = false;
+		LI_BTN.find('li').eq(cur-1).removeClass('selected');
+		if(cur != COUNT){
+			for(var i=0; i<LI_COUNT; i++) {
+				LI_DOM[i].find('.window').stop(true,true).animate({"left": -(next_cur-1)*LI_WIDTH[i]}, SPEED, function() {
+					isclick = true;
+				});
+			}
+			cur++;
+			next_cur = cur + 1;
+		}
+		else {
+			for(var i=0; i<LI_COUNT; i++) {
+				LI_DOM[i].find('.piece:lt('+(COUNT-1)+')').clone().insertAfter(LI_DOM[i].find('.piece').last());
+				LI_DOM[i].find('.piece:lt('+(COUNT-1)+')').remove();
+				LI_DOM[i].find('.window').css('left', '0px');
+
+                LI_DOM[i].find('.window').stop(true,true).animate({"left": -LI_WIDTH[i]}, SPEED, function() {
+	            	$(this).find('.piece').first().clone().insertAfter($(this).find('.piece').last());
+	            	$(this).find('.piece').first().remove();
+	            	$(this).css('left', '0px');
+	            	isclick = true;
+                });
+			}
+			cur = 1;
+			next_cur = cur + 1;
+		}
+		LI_BTN.find('li').eq(cur-1).addClass('selected');
+	}
+})();
+</script>
+</body>
+</html>

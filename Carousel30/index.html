@@ -1,0 +1,39 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MovingBoxes实现汽车图片展示</title>
+
+<link type="text/css" href="index.css" rel="stylesheet">
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript" src="index.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		$('#focus').movingBoxes({
+			startPanel   : 1,       // 从第一个li开始
+			reducedSize  : .5,      // 缩小到原图50%的尺寸
+			wrap         : true,   // 无缝循环
+			buildNav     : true,	// 显示指示器效果
+			navFormatter : function(){ return "&#9679;"; } // 指示器格式，为空即会显示123
+		});
+	});
+</script>
+</head>
+<body>
+
+<!-- 代码开始 -->
+<ul id="focus">
+	<li><a href="http://www.17sucai.com" target="_blank"><img src="images/hot-fuzz.jpg"></a></li>
+	<li><a href="http://www.17sucai.com" target="_blank"><img src="images/kick-ass.jpg"></a></li>
+	<li><a href="http://www.17sucai.com" target="_blank"><img src="images/kung-fu-panda.jpg"></a></li>
+	<li><a href="http://www.17sucai.com" target="_blank"><img src="images/spiderman.jpg"></a></li>
+	<li><a href="http://www.17sucai.com" target="_blank"><img src="images/thor.jpg"></a></li>
+</ul>
+<!-- 代码结束 -->
+
+</body>
+</html>
